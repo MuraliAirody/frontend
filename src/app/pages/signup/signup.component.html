@@ -1,0 +1,64 @@
+<div class="bootstrap-wrapper">
+   <div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="container text-center logo">
+                <img src="../../../assets/poratal_logo.png" alt="">
+            </div>
+            <h1 class="text-center">REGISTER HERE ..!</h1>
+            {{user|json}}
+            <form (ngSubmit)="formSubmit()">
+
+                <!-- user name -->
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input 
+                    name="username"
+                    [(ngModel)]="user.username" matInput placeholder="Enter here">
+                  </mat-form-field>
+
+                <!-- first name -->
+                  <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input name="firstname"
+                    [(ngModel)]="user.firstname"  matInput placeholder="Placeholder">
+                  </mat-form-field>
+
+                  <!-- last name -->
+                  <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input 
+                    name="lastname"
+                    [(ngModel)]="user.lastname" matInput placeholder="Placeholder">
+                  </mat-form-field>
+
+                  <!-- password -->
+                  <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input name="password"
+                    [(ngModel)]="user.password" type="password" matInput placeholder="Placeholder">
+                  </mat-form-field>
+
+                  <!-- email -->
+                  <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input name="email"
+                    [(ngModel)]="user.email" type="text" matInput placeholder="Placeholder">
+                  </mat-form-field>
+
+                  <!-- phone -->
+                  <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input name="phone"
+                    [(ngModel)]="user.phone"type="text" matInput placeholder="Placeholder">
+                  </mat-form-field>
+
+                  <div class="container text-center sign-up-btn">
+                    <button  type="submit" mat-raised-button color="primary">SUBMIT</button>
+                    <button type="reset" mat-raised-button color="accent">RESET</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+   </div>
+</div>
