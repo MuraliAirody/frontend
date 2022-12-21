@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private userService:UserService){
+  constructor(private userService:UserService,
+              private snack:MatSnackBar){
 
   }
   ngOnInit(): void {
@@ -31,13 +33,30 @@ export class SignupComponent implements OnInit {
     (this.user)
     if(this.user.username==''||this.user.password=='')
     {
-      alert("all field sare required")
+      // alert("all field sare required")
+       this.snack.open("Username and password required","",{
+        duration:3000
+       })
+       return
     }
 
     //add user
-    this.userService.addUser(this.user).subscribe(data=>
-      console.log(data));
+    this.userService.addUser(this.user).subscribe({
+      next:(success)=>{
+        console.log(success);
+        // alert("success")
+        this.snack.open("User added successfully","",{
+          duration:3000
+        })
+        //instead of snack bar we can also add sweet alert from 3rd party
+      },
+      error:(error)=>{
+        console.log(error);
+        this.snack.open("Something went wrong","",{
+          duration:3000
+        })
+      }
+    })
+
   }
-
-
 }
