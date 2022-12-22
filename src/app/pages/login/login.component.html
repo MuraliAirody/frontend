@@ -1,1 +1,46 @@
-<p>login works!</p>
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+                <mat-card style="margin-top: 80px;">
+                <div class="container text-center logo">
+                    <img src="../../../assets/poratal_logo.png" alt="">
+                </div>
+
+                       <h1 class="text-center">LOGIN HERE..</h1>
+     
+                <form action="">
+                   
+                <!-- user name -->
+                  <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input type="text"
+                    name="username"
+                    required
+                     matInput placeholder="Enter here">
+                     <mat-hint>Valid UserName please</mat-hint>
+                  </mat-form-field>
+
+                  <!-- password -->
+                  <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input 
+                    type="password"
+                    required
+                    name="password"
+                     matInput placeholder="Enter here">
+                  </mat-form-field>
+
+                  <div class="container text-center sign-up-btn">
+                    <button class="mr10" type="submit" mat-raised-button color="primary">LOGIN</button>
+                    <button class="ml10" type="reset" mat-raised-button color="accent">CLEAR</button>
+                  </div>
+
+                </form>
+            </mat-card>
+
+            </div>
+        </div>
+    </div>
+</div>

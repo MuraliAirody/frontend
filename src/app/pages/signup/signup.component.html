@@ -2,6 +2,7 @@
    <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
+          <mat-card>
             <div class="container text-center logo">
                 <img src="../../../assets/poratal_logo.png" alt="">
             </div>
@@ -54,11 +55,12 @@
                     [(ngModel)]="user.phone"type="text" matInput placeholder="Placeholder">
                   </mat-form-field>
 
-                  <div class="container text-center sign-up-btn">
-                    <button  type="submit" mat-raised-button color="primary">REFGISTER</button>
-                    <button type="reset" mat-raised-button color="accent">CLEAR</button>
+                  <div class="container text-center">
+                    <button class="mr10" type="submit" mat-raised-button color="primary">REFGISTER</button>
+                    <button class="ml10" type="reset" mat-raised-button color="accent">CLEAR</button>
                   </div>
             </form>
+          </mat-card>
         </div>
     </div>
    </div>
