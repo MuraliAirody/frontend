@@ -4,11 +4,17 @@
     </a>
     <a routerLink="/" class="ml10"><span >TestBay</span></a>
     <span class="example-spacer"></span>
-    <a routerLink="/login"  class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <a *ngIf="!loginService.isLoggedin()" routerLink="/login"  class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     Login
     </a>
-    <a routerLink="/signup"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
+    <a *ngIf="!loginService.isLoggedin()" routerLink="/signup"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
     Register
     </a>
+    <!-- <a *ngIf="loginService.isLoggedin()"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
+      {{loginService.getUser().username}}
+      </a> -->
+    <a *ngIf="loginService.isLoggedin()"  (click)="logout()"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
+      Logout
+      </a>
    
   </mat-toolbar>

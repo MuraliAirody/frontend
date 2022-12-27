@@ -5,7 +5,9 @@ a {
     font-size: 20px;
     text-decoration: none; 
     color: black;
+    cursor: pointer;
 }
+
 mat-toolbar{
     background-color: #B39DDB;
 }
