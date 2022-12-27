@@ -7,15 +7,13 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent  {
 
   constructor(private userService:UserService,
               private snack:MatSnackBar){
 
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
   public user={
     username:'',

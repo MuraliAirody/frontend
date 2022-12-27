@@ -1,11 +1,14 @@
 import { HttpClient, JsonpInterceptor } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import baseUrl from './helper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
+  public loginSubjectCheck = new Subject<Boolean>();
 
   constructor(private client:HttpClient) 
   {

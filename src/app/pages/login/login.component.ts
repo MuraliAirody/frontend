@@ -48,17 +48,22 @@ export class LoginComponent {
           //  console.log("getting user ",this.loginService.getUser());
           //  console.log("role ",this.loginService.getRole())
 
-           //validate User : redirect user to user dashboard
+          
            //validate Admin : redirect admin to admin dashboard
 
            if(this.loginService.getRole()=='ADMIN')
            {
-              // window.location.href="/admin-dashboard"
+              // window.location.href="/admin-dashboard" //we can use it instead of subscribe works fine
               this.router.navigate(["admin-dashboard"])
+
+              //whenevere login is happen ,next() will triger the subscribe
+              this.loginService.loginSubjectCheck.next(true)
            }else if(this.loginService.getRole()=='USER')
            {
+             //validate User : redirect user to user dashboard
             // window.location.href="/user-dashboard"
             this.router.navigate(["user-dashboard"])
+            this.loginService.loginSubjectCheck.next(true)
            }else{
             this.loginService.logout()
            }

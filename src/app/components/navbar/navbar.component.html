@@ -4,16 +4,16 @@
     </a>
     <a routerLink="/" class="ml10"><span >TestBay</span></a>
     <span class="example-spacer"></span>
-    <a *ngIf="!loginService.isLoggedin()" routerLink="/login"  class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <a *ngIf="!isLoggedIn" routerLink="/login"  class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     Login
     </a>
-    <a *ngIf="!loginService.isLoggedin()" routerLink="/signup"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
+    <a *ngIf="!isLoggedIn" routerLink="/signup"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
     Register
     </a>
-    <!-- <a *ngIf="loginService.isLoggedin()"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
-      {{loginService.getUser().username}}
-      </a> -->
-    <a *ngIf="loginService.isLoggedin()"  (click)="logout()"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
+    <a *ngIf="isLoggedIn && user"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
+      {{user.username}}
+      </a>
+    <a *ngIf="isLoggedIn"  (click)="logout()"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
       Logout
       </a>
    
