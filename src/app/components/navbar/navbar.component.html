@@ -10,7 +10,7 @@
     <a *ngIf="!isLoggedIn" routerLink="/signup"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
     Register
     </a>
-    <a *ngIf="isLoggedIn && user"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
+    <a *ngIf="isLoggedIn && user" routerLink="/admin-dashboard/profile" class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">
       {{user.username}}
       </a>
     <a *ngIf="isLoggedIn"  (click)="logout()"  class="example-icon favorite-icon  ml20 mr20" aria-label="Example icon-button with heart icon">

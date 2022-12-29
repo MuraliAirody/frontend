@@ -49,8 +49,9 @@ export class SignupComponent  {
         //instead of snack bar we can also add sweet alert from 3rd party
       },
       error:(error)=>{
-        console.log(error);
-        this.snack.open("Something went wrong","",{
+        // console.log(error);
+        // console.log(error.error.text);
+        this.snack.open(error.error.text,"",{
           duration:3000
         })
       }

@@ -1,0 +1,50 @@
+
+.profile-image{
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    border: 2px solid #212121;
+    object-fit: fill;
+}
+h1{
+    font-family: Segoe Script;
+    font-size: 30px;
+}
+table{
+    
+    width: 100%;
+    margin: auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+    box-shadow: 5px 5px 5px rgb(148, 148, 148);
+
+}
+table tr td{
+
+    border: .5px solid #e2e2e2;
+    padding: 10px 20px;
+    text-align: center;
+}
+table tr td:first-child{
+    font-weight: bold;
+}
+
+.buttons{
+    justify-content: center;
+}
+
+@media screen and (max-width:900px){
+   table{
+    table-layout: unset;
+   }
+}
+
+@media screen and (max-width:400px){
+    table{
+     table-layout: unset;
+     
+    }
+    table tr td{
+        padding: 10px 0;
+    }
+ }

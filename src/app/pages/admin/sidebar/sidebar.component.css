@@ -1,0 +1,11 @@
+mat-card{
+    background-color: #212121;
+}
+button mat-icon,span{
+   color: white;
+}
+
+button:hover{
+    background-color: #757575;
+}
+
