@@ -1,0 +1,15 @@
+.w100{
+    width: 100%;
+}
+h1{
+    margin: 20px;
+}
+.btn-div{
+    padding: 0;
+}
+.add{
+    background-color: rgb(35, 211, 35) !important;
+}
+.reset{
+    background-color: rgb(230, 66, 11) !important;
+}

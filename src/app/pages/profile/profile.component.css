@@ -1,4 +1,6 @@
-
+mat-card{
+    height: 90vh;
+}
 .profile-image{
     max-width: 150px;
     max-height: 150px;
@@ -9,6 +11,9 @@
 h1{
     font-family: Segoe Script;
     font-size: 30px;
+}
+h2{
+    margin-top: 20px;
 }
 table{
     

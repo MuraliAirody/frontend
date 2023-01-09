@@ -12,27 +12,27 @@
             <span>Profile</span> 
         </button>    
 
-        <button mat-list-item>
+        <button mat-list-item routerLink="/admin-dashboard/view-categories">
             <mat-icon class="mr10">category</mat-icon>
             <span>Categories</span> 
         </button> 
 
-        <button mat-list-item>
+        <button mat-list-item routerLink="/admin-dashboard/add-category">
             <mat-icon class="mr10">add_chart</mat-icon>
             <span>Add Category</span> 
         </button> 
 
-        <button mat-list-item>
+        <button mat-list-item routerLink="/admin-dashboard/view-quizzes">
             <mat-icon class="mr10">laptop_chromebook</mat-icon>
             <span>Exams</span> 
         </button> 
 
-        <button mat-list-item>
+        <button mat-list-item routerLink="/admin-dashboard/add-quiz">
             <mat-icon class="mr10">add</mat-icon>
             <span>Add Exam</span> 
         </button> 
-
-        <button mat-list-item>
+        
+        <button mat-list-item (click)="logout()">
             <mat-icon class="mr10">logout</mat-icon>
             <span>Logout</span> 
         </button> 

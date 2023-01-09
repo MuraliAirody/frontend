@@ -10,4 +10,5 @@ a {
 
 mat-toolbar{
     background-color: #bdbdbd;
+    height: 10vh;
 }

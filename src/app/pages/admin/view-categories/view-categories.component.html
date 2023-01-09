@@ -1,0 +1,20 @@
+<mat-card>
+    <h1 class="mt20">All Categories</h1>
+    <!-- <div class="addLink">
+        <mat-icon matListItemIcon>add_circle</mat-icon>
+        <a>Add Category</a>
+    </div> -->
+    <mat-list>
+        <mat-list-item *ngFor="let c of category ">
+            <mat-icon matListItemIcon>folder_open</mat-icon>
+            <div matListItemTitle>{{c.title}}</div>
+            <div matListItemLine>{{c.description}}</div>
+            <mat-list>
+            <mat-divider></mat-divider>
+             </mat-list>
+        </mat-list-item>
+    </mat-list>
+    <div class="text-center mt20 mb20 container ">
+        <button routerLink="/admin-dashboard/add-category" mat-raised-button color="primary">Add Category</button>
+    </div>
+</mat-card>
