@@ -6,6 +6,10 @@
             <mat-card-title>
                 {{q.title}}
             </mat-card-title>
+            <div class="flex-end">
+                <a   [routerLink]="'/admin-dashboard/update-quiz/'+q.qId" class="text-center"><mat-icon>edit</mat-icon></a>
+                <a   (click)="delete(q.qId)" class="ml20 text-center"><mat-icon>delete</mat-icon></a>
+            </div>    
             <mat-card-subtitle>
                 {{q.category.title}}
             </mat-card-subtitle>
@@ -14,12 +18,10 @@
             {{q.description}}
         </mat-card-content>
         <mat-card-actions>
-            <button mat-stroked-button color="primary">Questions</button>
+            <button [routerLink]="'/admin-dashboard/view-questions/'+q.qId+'/'+q.title" mat-stroked-button color="primary">Questions</button>
             <button class="ml10" mat-stroked-button color="primary">Max Marks: {{q.maxMarks}}</button>
             <button class="ml10" mat-stroked-button color="primary">Max Questions: {{q.numberOfQuestions}}</button>
-            <button class="ml10" mat-stroked-button color="primary">Update</button>
             <button class="ml10" mat-stroked-button color="primary">Attempts</button>
-           
           </mat-card-actions>
     </mat-card>
 

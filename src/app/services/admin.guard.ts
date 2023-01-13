@@ -16,14 +16,18 @@ export class AdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
-    if(this.loginService.getRole()=='ADMIN'&&this.loginService.isLoggedin()==true)   
+      console.log(this.loginService.isTokenExpired());
+      
+    if(this.loginService.getRole()=='ADMIN'&&this.loginService.isLoggedin()==true && this.loginService.isTokenExpired()==false)   
       {
         return true;
       } 
     else{
       this.router.navigate(["login"])
+      this.loginService.logout();
      return false;
     }  
   }
   
+
 }

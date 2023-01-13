@@ -1,0 +1,53 @@
+<mat-card>
+    <h1>All question of {{title}}</h1>
+ 
+    <!-- {{questions|json}} -->
+        <!-- <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12"> -->
+                        <div class="add-link">
+                            <a [routerLink]="'/admin-dashboard/add-question/'+qID+'/'+title"><mat-icon>add_circle</mat-icon>Add Question</a>
+                        </div>
+                        <mat-card class="ques-card" *ngFor="let q of questions; let i=index" >
+                            <mat-card-content>
+                                <div><b>Q. {{i+1}}) </b><span class="ml10" [innerHTML]="q.content"></span>
+                                        <div class="icons mt10">
+                                            <a [routerLink]="'/admin-dashboard/update-question/'+q.quesId"   class="text-center"><mat-icon>edit</mat-icon></a>
+                                            <a (click)="deleteQuestion(q.quesId)" class="ml20 text-center"><mat-icon color="warn">delete</mat-icon></a>
+                                        </div>
+                                </div>
+
+                                 
+                            <br>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><b>1)</b><span [innerHTML]="q.option1" class="ml10"></span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>2)</b><span [innerHTML]="q.option2"class="ml10"></span></p>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-md-6 ">
+                                        <p><b>3)</b><span [innerHTML]="q.option3"class="ml10"></span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>4)</b><span [innerHTML]="q.option4"class="ml10"></span></p>
+                                    </div>
+                                </div>
+                                <mat-divider> </mat-divider>
+                                <div class="mt10">
+                                    <p><b>Answer:</b><span [innerHTML]="q.answer" class="ml10"></span></p>
+                                </div>
+                            </div>
+                            </mat-card-content>
+                         </mat-card>
+                     
+                    <!-- </div>
+                </div>
+            </div>
+        </div> -->
+
+</mat-card>

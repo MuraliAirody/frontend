@@ -11,3 +11,17 @@
     border: 1px solid rgb(104, 102, 102);
     margin: 10px;
   }
+
+  .flex-end{
+   margin-left: auto;
+   cursor: pointer;
+  }
+
+ .flex-end a:nth-child(1){
+  color: blue;
+ }
+ .flex-end a:nth-child(2){
+  color: red;
+ }
+
+

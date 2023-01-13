@@ -71,5 +71,18 @@ export class LoginService {
       return null;
     }
 
-   
+    // checking token expiration, even user still loggedin. local storage contain user data,but token in expire
+    //that time we are not able to get data from server, so I make it logout if token expire
+    //even when user still logged in also
+   token:any = this.getToken()
+    public isTokenExpired() {
+      let expiry
+      if(this.token)
+         expiry = (JSON.parse(atob(this.token.split('.')[1]))).exp;
+      console.log("expiry",expiry*1000);
+      console.log("date  ",Date.now());
+      
+      
+      return expiry*1000 < Date.now();
+    }
 }

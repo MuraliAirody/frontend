@@ -39,7 +39,7 @@ export class LoginComponent {
       console.log(data.token);
 
       this.loginService.loginUser(data.token)
-
+         
       this.loginService.getCurrentUser().subscribe({
         next:(user:any)=>{
            console.log("user ->",user);
@@ -49,7 +49,7 @@ export class LoginComponent {
           //  console.log("role ",this.loginService.getRole())
 
           
-           //validate Admin : redirect admin to admin dashboard
+          //validate Admin : redirect admin to admin dashboard
 
            if(this.loginService.getRole()=='ADMIN')
            {

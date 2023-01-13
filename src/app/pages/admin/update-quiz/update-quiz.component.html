@@ -1,19 +1,19 @@
 <mat-card>
-    <h1>Add Quiz</h1>
+    <h1>Update Quiz</h1>
 
         <div class="bootstrap-wrapper">
           <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <form (ngSubmit)="formSubmit()">
-
+                    <form *ngIf="quiz" (ngSubmit)="updateQuiz()">
+<!-- {{quiz|json}} -->
                         <mat-form-field appearance="fill" class="w100">
                             <mat-label>Title</mat-label>
-                            <input  name="title" [(ngModel)]="quizData.title"  required type="text"  matInput placeholder="Enter Title here">
+                            <input  name="title" [(ngModel)]="quiz.title"  required type="text"  matInput placeholder="Enter Title here">
                           </mat-form-field>
                           <mat-form-field appearance="fill" class="w100">
                             <mat-label>Description</mat-label>
-                            <textarea [(ngModel)]="quizData.description" name="description"  matInput placeholder="Enter Description here" rows="5"></textarea>
+                            <textarea [(ngModel)]="quiz.description" name="description"  matInput placeholder="Enter Description here" rows="5"></textarea>
                           </mat-form-field>
 
                           <div class="row">
@@ -21,18 +21,18 @@
                                 
                                   <mat-form-field appearance="fill" class="w100">
                                     <mat-label>No of Questions</mat-label>
-                                    <input [(ngModel)]="quizData.numberOfQuestions"  name="noOfQuestions"   required type="text"  matInput placeholder="Enter no of question to display">
+                                    <input [(ngModel)]="quiz.numberOfQuestions"  name="noOfQuestions"   required type="text"  matInput placeholder="Enter no of question to display">
                                   </mat-form-field>
                             </div>
                             <div class="col-md-6">
                                 <mat-form-field appearance="fill" class="w100">
                                     <mat-label>Max Marks</mat-label>
-                                    <input [(ngModel)]="quizData.maxMarks"  name="maxMarks"   required type="text"  matInput placeholder="Enter maximum marks here">
+                                    <input [(ngModel)]="quiz.maxMarks"  name="maxMarks"   required type="text"  matInput placeholder="Enter maximum marks here">
                                   </mat-form-field>
                             </div>
                           </div>
 
-                          <mat-slide-toggle class="text-center" name="active" [(ngModel)]="quizData.active">
+                          <mat-slide-toggle class="text-center" name="active" [(ngModel)]="quiz.active">
                              Publish Status
                           </mat-slide-toggle>
 
@@ -40,7 +40,7 @@
 
                           <mat-form-field appearance="fill" class="mt20 w100">
                             <mat-label>Choose category of quiz</mat-label>
-                            <mat-select name="category" [(ngModel)]="quizData.category.cId">
+                            <mat-select name="category" [(ngModel)]="quiz.category.cId">
                               <mat-option *ngFor="let c of categories" [value]="c.cId">
                                 {{c.title}}
                               </mat-option>
@@ -48,7 +48,7 @@
                           </mat-form-field>
                               
                           <div class="container text-center btn-div">
-                            <button type="submit" mat-raised-button color="primary" class="mt20 w100 add">Add Quiz</button>
+                            <button type="submit" mat-raised-button color="primary" class="mt20 w100 add">Update</button>
                             <button type="reset" mat-raised-button color="accent" class="mt10 mb20 w100 reset">Reset</button>
                           </div>
 

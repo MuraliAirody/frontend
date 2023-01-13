@@ -32,6 +32,11 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,11 @@ import {MatSelectModule} from '@angular/material/select';
     ViewCategoriesComponent,
     AddCategoryComponent,
     ViewQuizzesComponent,
-    AddQuizComponent
+    AddQuizComponent,
+    UpdateQuizComponent,
+    ViewQuestionsComponent,
+    AddQuestionComponent,
+    UpdateQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +76,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     MatSidenavModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
