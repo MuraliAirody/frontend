@@ -1,0 +1,18 @@
+<mat-card style="padding: 10px;">
+
+    <mat-action-list>
+     
+        <button mat-list-item >
+            <mat-icon class="mr10">dashboard</mat-icon>
+            <span>Dashboard</span>
+        </button>
+        <button mat-list-item routerLink="/user-dashboard/0">
+            <mat-icon class="mr10">quiz</mat-icon>
+            <span>All quiz</span> 
+        </button> 
+        <button  *ngFor="let c of categories">
+            <mat-icon class="mr10">quiz</mat-icon>
+            <span>{{c.title}}</span> 
+        </button> 
+    </mat-action-list>
+</mat-card>        

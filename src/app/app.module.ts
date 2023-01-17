@@ -37,6 +37,9 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SidebarComponent as userSidebarComponent} from './pages/user/sidebar/sidebar.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,9 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
     UpdateQuizComponent,
     ViewQuestionsComponent,
     AddQuestionComponent,
-    UpdateQuestionComponent
+    UpdateQuestionComponent,
+    userSidebarComponent,
+    LoadQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +82,8 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
     MatSidenavModule,
     MatSlideToggleModule,
     MatSelectModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    CKEditorModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

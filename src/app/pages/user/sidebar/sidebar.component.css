@@ -1,0 +1,18 @@
+mat-card{
+    background-color: #212121;
+}
+button mat-icon,span{
+   color: white;
+   vertical-align: middle;
+}
+button{
+    display: inline-block !important;
+    text-align: left !important;
+    width: 100% !important;
+    padding: 10px 0;
+    /* justify-content: center;
+    align-items: center; */
+}
+button:hover{
+    background-color: #757575;
+}

@@ -41,6 +41,7 @@ export class LoginService {
      public logout(){
       localStorage.removeItem("token")
       localStorage.removeItem("user")
+      // window.location.reload();
      }
      //get token
      public getToken(){
@@ -76,13 +77,16 @@ export class LoginService {
     //even when user still logged in also
    token:any = this.getToken()
     public isTokenExpired() {
-      let expiry
       if(this.token)
-         expiry = (JSON.parse(atob(this.token.split('.')[1]))).exp;
-      console.log("expiry",expiry*1000);
-      console.log("date  ",Date.now());
+        { const expiry = (JSON.parse(atob(this.token.split('.')[1]))).exp;
+          console.log("expiry",expiry*1000);
+          console.log("date  ",Date.now());
+
+          return expiry*1000 < Date.now();
+
+        } 
+
+        return false;
       
-      
-      return expiry*1000 < Date.now();
     }
 }

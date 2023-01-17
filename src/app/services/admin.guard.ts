@@ -25,7 +25,7 @@ export class AdminGuard implements CanActivate {
     else{
       this.router.navigate(["login"])
       this.loginService.logout();
-     return false;
+    return false;
     }  
   }
   

@@ -1,0 +1,39 @@
+.sidebar{
+    grid-area: sidebar;
+}
+.content{
+    grid-area: content;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 0.8fr 3fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+    "sidebar content"
+    ;
+}
+
+
+@media (max-width: 700px) {
+    .wrapper {
+      grid-template-columns: 4fr;
+      grid-template-areas:
+        "sidebar"
+        "content"
+    }
+  }
+
+  @media (max-width: 400px) {
+    .sidebar{
+        max-width: 370px !important;
+    }
+    .content{
+        max-width: 370px ;
+    }
+    .wrapper {
+      grid-template-columns: 2fr;
+      grid-template-areas:
+        "sidebar"
+        "content"
+    }
+  }
