@@ -1,1 +1,38 @@
-<p>load-quiz works!</p>
+
+        <mat-card>
+            <h1>Quizzes</h1>
+
+            <div class="bootstrap-wrapper">
+                <div class="container">
+
+            <div class="row" *ngIf="quizzes">
+                <div class="col-md-4"  *ngFor="let q of quizzes">
+                    <mat-card class="mt20 mb20 ">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>
+                                {{q.title}}
+                            </mat-card-title>
+                           
+                            <mat-card-subtitle>
+                                {{q.category.title}}
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content >
+                            <span class="truncate">{{q.description}}</span>
+                        </mat-card-content>
+                        <mat-card-actions >
+                            <div class="container text-center">
+                                <button mat-stroked-button color="primary">View</button>
+                                <button mat-stroked-button class="ml10" color="warn">Start</button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+        </mat-card>
+    
+               

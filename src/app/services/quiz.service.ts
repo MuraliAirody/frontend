@@ -28,4 +28,16 @@ export class QuizService {
   public updateQuiz(quiz:any){
     return this._client.put(`${baseUrl}/quiz/`,quiz);
   }
+
+  public getQuizByCategory(cId:any){
+    return this._client.get(`${baseUrl}/quiz/category/${cId}`)
+  }
+
+  public getActiveQuiz(){
+    return this._client.get(`${baseUrl}/quiz/active`);
+  }
+
+  public getActiveQuizOfCategory(cId:any){
+    return this._client.get(`${baseUrl}/quiz/category/active/${cId}`)
+  }
 }

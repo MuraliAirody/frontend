@@ -6,15 +6,15 @@
         <mat-card-subtitle>Edit the question details</mat-card-subtitle>
         <mat-card-content>
           <form class="mt20" *ngIf="question" (ngSubmit)="formSubmit()">
-            <!-- <mat-form-field appearance="fill" class="w100">
+            <mat-form-field appearance="fill" class="w100">
                             <mat-label>Content</mat-label>
                             <textarea name="content" 
                               [(ngModel)]="question.content" rows="5" 
                               required matInput placeholder="Enter the content of the question"></textarea>
-                          </mat-form-field> -->
+                          </mat-form-field>
 
-            <ckeditor [editor]="Editor" name="content" [(ngModel)]="question.content" rows="5" required
-              data="<p>Enter the content of the question</p>"></ckeditor>
+            <!-- <ckeditor [editor]="Editor" name="content" [(ngModel)]="question.content" rows="5" required
+              data="<p>Enter the content of the question</p>"></ckeditor> -->
 
             <div class="row mt20">
               <div class="col-md-6">

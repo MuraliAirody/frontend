@@ -21,25 +21,30 @@ export class HomeComponent {
  console.log(this.loginService.isLoggedin());
  
     if(this.loginService.isLoggedin()){
-      this.loginService.getCurrentUser().subscribe({
-        next:(data:any)=>{
-          this.user = data;
-          console.log(data);
-
-          
-    console.log(this.user);
-    this.role = this.user.authorities[0].authority
-    if(this.role == 'ADMIN')
-      this.auth = "admin-dashboard"
-    else
-      this.auth = "user-dashboard"  
-          
-        },
-        error:(data)=>{
-          console.log(data);
-          
-        }
-      })
+      if(this.loginService.isTokenExpired()==false){
+        this.loginService.getCurrentUser().subscribe({
+          next:(data:any)=>{
+            this.user = data;
+            console.log(data);
+  
+            
+      console.log(this.user);
+      this.role = this.user.authorities[0].authority
+      if(this.role == 'ADMIN')
+        this.auth = "admin-dashboard"
+      else
+        this.auth = "user-dashboard"  
+            
+          },
+          error:(data)=>{
+            console.log(data);
+            
+          }
+        })
+      }
+      else{
+        this.loginService.logout();
+      }
     }
     else{
       this._routr.navigate(["login"])
