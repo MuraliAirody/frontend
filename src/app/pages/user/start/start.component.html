@@ -1,0 +1,72 @@
+<mat-card style="margin: 0 10px;">
+    
+    <div class="bootstrap-wrapper">
+        <div class="container-fluid">
+            <div class="row" *ngIf="!isDone">
+                <div class="col-md-2">
+                    <h2>Instructions</h2>
+                </div>
+                <div class="col-md-8">
+                    <div class="mt20">
+                        <h1 *ngIf="questions">Questions of <b><u>{{questions[0].quiz.title}}</u></b></h1>
+                    </div>
+                    <mat-card *ngFor="let q of questions; let i = index" class="mt10" >
+                        <mat-card-content>
+                          <p><b> Q. {{i+1}})</b> <span [innerHTML]="q.content"></span></p>
+
+                            <mat-divider></mat-divider>
+                            <div class="row mt10">
+                                <div class="col-md-6">
+                                   <input type="radio" [value]="q.option1" [name]="i.toString()" [(ngModel)]="q.givenAnswer">{{q.option1}}
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="radio" [value]="q.option2" [name]="i.toString()" [(ngModel)]="q.givenAnswer">{{q.option2}}
+                                </div>
+                            </div>
+                            <div class="row mt10">
+                                <div class="col-md-6">
+                                    <input type="radio" [value]="q.option3" [name]="i.toString()" [(ngModel)]="q.givenAnswer">{{q.option3}}
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="radio" [value]="q.option4" [name]="i.toString()" [(ngModel)]="q.givenAnswer">{{q.option4}}
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+                <div class="col-md-2">
+                    <h2>Instructions</h2>
+                </div>
+
+                
+              <div class="container-fluid mt20 mb20 text-center">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="isDone">
+                <div class="col-md-6 offset-md-3">
+                <mat-card class="mt20">
+                    <mat-card-header>
+                        <mat-card-title>
+                            Result
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1>Marks got {{marksGot}}</h1>
+                        <h1>Question attempted {{attempted}}</h1>
+                        <h1>Correct answer {{correctAnswer}} out of {{questions[0].quiz.numberOfQuestions}}</h1>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div class="container text-center mt20 mb20">
+                            <button mat-raised-button color="primary" class="mr10">Print</button>
+                            <button mat-raised-button color="accent" routerLink="/user-dashboard">Home</button>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+</mat-card>

@@ -28,4 +28,8 @@ export class QuestionService {
   public updateQuestion(question:any){
     return this._client.put(`${baseUrl}/question/`,question)
   }
+
+  public getQuestionsforQuiz(qId: any){
+    return this._client.get(`${baseUrl}/question/quiz/${qId}`)
+   }
 }

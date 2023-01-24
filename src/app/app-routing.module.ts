@@ -14,10 +14,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { InstructionComponent } from './pages/user/instruction/instruction.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { StartComponent } from './pages/user/start/start.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { UserGuard } from './services/user.guard';
+import { HomeComponent as userHome } from './pages/user/home/home.component';
 
 const routes: Routes = [
   {
@@ -89,10 +92,23 @@ const routes: Routes = [
     canActivate:[UserGuard],
     children:[
       {
+        path:"",
+        component:userHome
+      },
+      {
         path:":cId",
         component:LoadQuizComponent
+      },
+      {
+        path:"instruction/:qId",
+        component:InstructionComponent
       }
     ]
+  },
+  {
+    path:"start/:qId",
+    component:StartComponent,
+    canActivate:[UserGuard]
   }
 ];
 

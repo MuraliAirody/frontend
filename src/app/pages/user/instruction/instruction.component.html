@@ -1,0 +1,53 @@
+<mat-card>
+    <div class="bootstrap-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card *ngIf="quiz">
+                    <mat-card-header>
+                       <mat-card-title>
+                        <h1 style="color: red; font-weight: bold;"><u>Read the instructions about quiz carefully</u></h1>
+                       </mat-card-title>
+                       <mat-card-subtitle>
+                         One more step to go
+                       </mat-card-subtitle>
+                    </mat-card-header>
+              
+                    <mat-card-content class="mt20 ">
+                       <h1>{{quiz.title}} 
+                          <button (click)="startQuiz()" class="start"mat-raised-button color="warn">Start Quiz</button>
+                       </h1>
+                       <p>{{quiz.description}}<p>
+                        
+                        <mat-divider></mat-divider>
+
+                        <br>
+                        <h1>Important instructions</h1>
+                        <ul>
+                            <li>This quiz only for practice purpose</li>
+                            <li>You can attempt the quiz n number of times</li>
+                            <li>This quiz contains <b>{{quiz.numberOfQuestions}}</b> questions</li>
+                            <li>The total marks for this quiz is <b>{{quiz.maxMarks}}</b></li>
+                            <li>each question carries <b>{{quiz.maxMarks/quiz.numberOfQuestions}}</b> marks</li>
+                            <li>You have to complete this quiz within <b>{{quiz.numberOfQuestions * 1.5}}</b> minutes</li>
+                            <li>All the questions are MCQ type </li>
+                            <li>You have to select one correct answer out of <b>4</b> choices</li>
+                        </ul>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <h1>Attempting Quiz</h1>
+                        <ul>
+                            <li>Click on <b>Start</b> button to start the quiz</li>
+                            <li>Time will start the moment when you click on start button</li>
+                            <li>You cannot resume the quiz so please avoid the destractions</li>
+                            <li>Scroll donw and answer the next question</li>
+                            <li>After the complition of test hit the submit button to submit the quiz </li>
+                            <li>Once you entred the submit button you will get the Your score card</li>
+                            <li>You can download your score card as a PDF file </li>
+                        </ul>
+                    </mat-card-content>
+                 
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</mat-card>
