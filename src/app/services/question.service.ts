@@ -32,4 +32,9 @@ export class QuestionService {
   public getQuestionsforQuiz(qId: any){
     return this._client.get(`${baseUrl}/question/quiz/${qId}`)
    }
+
+   public evaluvateAnswer(question:any){
+    return this._client.post(`${baseUrl}/question/eval-quiz`,question);
+   }
+
 }

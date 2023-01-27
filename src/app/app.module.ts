@@ -43,6 +43,10 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionComponent } from './pages/user/instruction/instruction.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { HomeComponent as userHome  } from './pages/user/home/home.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+
+
 
 @NgModule({
   declarations: [
@@ -88,8 +92,13 @@ import { HomeComponent as userHome  } from './pages/user/home/home.component';
     MatSidenavModule,
     MatSlideToggleModule,
     MatSelectModule,
-    SweetAlert2Module.forRoot(),
-    CKEditorModule
+    SweetAlert2Module,
+    CKEditorModule,
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true
+    })
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

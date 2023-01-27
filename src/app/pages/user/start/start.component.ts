@@ -16,12 +16,14 @@ export class StartComponent {
   }
 
   qId:any;
-  questions:any;
+  questions:any=[];
   marksGot=0;
   correctAnswer=0;
   attempted=0;
 
   isDone = false;
+
+  timer = 0;
 
   ngOnInit():void{
     this.qId = this._route.snapshot.params["qId"];
@@ -33,12 +35,16 @@ export class StartComponent {
       next:data=>{
         this.questions = data
         console.log(this.questions);
+        
+        this.timer = this.questions.length * 1.5 * 60;
+        console.log(this.questions.length);
+        
 
-        this.questions.forEach((q:any)=> {
-          q['givenAnswer']=''
-        });
-        console.log(this.questions);
+        // this.questions.forEach((q:any)=> {
+        //   q['givenAnswer']=''
+        // });
 
+        this.stratTimer()
       },
       error:error=>{
         console.log(error);
@@ -54,33 +60,71 @@ export class StartComponent {
       confirmButtonText: 'Submit',
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
-      this.isDone=true;
       if (result.isConfirmed) {
-        this.questions.forEach((q:any)=>{
-
-          // console.log("marks",q.quiz.maxMarks);
-          // console.log("ques",q.quiz.numberOfQuestions);
-          if(q.answer == q.givenAnswer)
-          {
-            this.correctAnswer++;
-                   
-            let singleMarks=q.quiz.maxMarks / q.quiz.numberOfQuestions;
-            // console.log(singleMarks);
-            this.marksGot = + singleMarks;
-            
-          }  
-          if(q.givenAnswer.trim()!='')
-          {
-            this.attempted ++ ;
-          }          
-        })
-        console.log(this.correctAnswer);
-        console.log(this.marksGot);
-        console.log(this.attempted);
-        
+         this.marksEvaluation();
 
       } else if (result.isDenied) {
       }
     })
+  }
+
+  marksEvaluation(){
+
+    this.isDone=true;
+
+    // this.questions.forEach((q:any)=>{
+
+    //   // console.log("marks",q.quiz.maxMarks);
+    //   // console.log("ques",q.quiz.numberOfQuestions);
+    //   if(q.answer == q.givenAnswer)
+    //   {
+    //     this.correctAnswer++;
+               
+    //     let singleMarks=q.quiz.maxMarks / q.quiz.numberOfQuestions;
+    //     // console.log(singleMarks);
+    //     this.marksGot = + singleMarks;
+        
+    //   }  
+    //   if(q.givenAnswer.trim()!='')
+    //   {
+    //     this.attempted ++ ;
+    //   }          
+    // })
+    // console.log(this.correctAnswer);
+    // console.log(this.marksGot);
+    // console.log(this.attempted);
+
+    this._questionService.evaluvateAnswer(this.questions).subscribe({
+      next:(data:any)=>{
+        console.log(data);
+        this.marksGot = data.marksGot;
+        this.correctAnswer = data.correctAnswer;
+        this.attempted = data.attempted;
+        
+      },
+      error:error=>{
+        console.log(error);
+        
+      }
+    })
+    
+  }
+
+  stratTimer(){
+   let t =  window.setInterval(()=>{
+        if(this.timer<=0){
+          this.marksEvaluation()
+          clearInterval(t);
+        }else{
+          this.timer -- ;
+        }
+    },1000)
+  }
+
+  exactTime(){
+    let mm = Math.floor(this.timer/60);
+    let ss = this.timer - mm *60
+
+    return `${mm} Min : ${ss} Sec`
   }
 }

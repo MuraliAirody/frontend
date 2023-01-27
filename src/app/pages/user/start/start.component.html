@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="mt20">
-                        <h1 *ngIf="questions">Questions of <b><u>{{questions[0].quiz.title}}</u></b></h1>
+                        <h1 *ngIf="questions.length>0">Questions of <b><u>{{questions[0].quiz.title}}</u></b></h1>
                     </div>
                     <mat-card *ngFor="let q of questions; let i = index" class="mt10" >
                         <mat-card-content>
@@ -35,7 +35,23 @@
                     </mat-card>
                 </div>
                 <div class="col-md-2">
-                    <h2>Instructions</h2>
+                    <mat-card style="margin-top:65px ;">
+                        <mat-card-header >
+                            <mat-card-title>Time</mat-card-title>
+                            <mat-card-subtitle>Time remaining</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content  class="mt20" *ngIf="this.questions.length>0">
+                            <mat-spinner
+                             style="margin: auto;"
+                             mode="determinate"
+                             [value]="(timer /(this.questions.length * 1.5 * 60))*100"
+                             >
+                            </mat-spinner>
+
+                            <h1>{{exactTime()}}</h1>
+                        </mat-card-content>
+
+                    </mat-card>
                 </div>
 
                 
